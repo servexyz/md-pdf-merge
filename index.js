@@ -33,11 +33,24 @@ function convertMarkdownToPDF(inputDir, outputDir) {
     });
 }
 
+// function createMergedPDF(pdfs, destFile) {
+//   const merge = require("pdf-merge");
+//   log(`merge`);
+//   merge(pdfs, { output: destFile })
+//     .then(buff => {
+//       log(`buff: ${buff}`);
+//     })
+//     .catch(err => {
+//       log(`Failed to merge. \n ${chalk.red(err)}`);
+//     });
+//   log(`fin`);
+// }
 function createMergedPDF(pdfs, destFile) {
   const merge = require("easy-pdf-merge");
   merge(pdfs, destFile, err => {
-    if (err) return log(err);
-    log(`Created ${chalk.green(mergedFileDestination)}`);
+    if (err) log(`Failed to create merged PDF. \n ${err}`);
+
+    log(`Created ${chalk.green(destFile)}`);
   });
 }
 
