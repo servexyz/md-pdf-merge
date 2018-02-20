@@ -2,6 +2,8 @@
 
 > ( Multiple markdown files ) => 1 PDF
 
+NOTE: This currently breaks while trying to convert. Not sure why markdown-pdf is outputting blank PDFs. I've tried using different styles (using streams, using callbacks) and I've tried using different versions (8 & 7). Still not working. Not sure what I'm doing wrong here.
+
 ## Getting Started
 
 **Install**
