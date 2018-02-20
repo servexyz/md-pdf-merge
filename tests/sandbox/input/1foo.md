@@ -1,4 +1,4 @@
-# Foo
+Foo
 
 Lorem et est anim labore incididunt consectetur fugiat veniam pariatur do. Ex eu consequat proident elit qui elit anim aliquip. Aliqua pariatur sit proident minim magna et pariatur deserunt anim ex cupidatat culpa. Sit enim ad sit amet excepteur. Qui eiusmod consequat do eiusmod dolore excepteur sunt irure dolore ea tempor.
 

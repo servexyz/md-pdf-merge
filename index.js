@@ -10,7 +10,8 @@ function basename(path) {
 }
 
 function convertMarkdownToPDF(inputDir, outputDir) {
-  return fs
+  let mds = [];
+  let pdfPaths = fs
     .readdirSync(inputDir)
     .filter(file => {
       //TODO: Replace with regex
@@ -20,31 +21,30 @@ function convertMarkdownToPDF(inputDir, outputDir) {
       return path.join(inputDir, md);
     })
     .map(mdPath => {
+      mds.push(mdPath);
       let filename = basename(mdPath);
       let pdfPath = path.join(outputDir, `${filename}.pdf`);
       log(`.md: \t`, chalk.blue(mdPath));
       log(`.pdf: \t`, chalk.green(pdfPath));
-      fs.ensureFileSync(pdfPath);
-      let writer = fs
-        .createReadStream(mdPath)
-        .pipe(markdownpdf())
-        .pipe(fs.createWriteStream(pdfPath));
-
-      if (writer.bytesWritten === 0) {
-        log(`${chalk.red("0 bytes written")}`);
-      }
-
       return pdfPath;
     });
+  log(JSON.stringify(mds, null, 2));
+  markdownpdf()
+    .concat.from(mds)
+    .to("./tests/sandbox/output/merged.pdf", function() {
+      log(`Done`);
+    });
+
+  return pdfPaths;
 }
 
-function createMergedPDF(pdfs, destFile) {
-  const merge = require("easy-pdf-merge");
-  merge(pdfs, destFile, err => {
-    if (err) log(`Failed to create merged PDF. \n ${err}`);
-    log(`Created ${chalk.green(destFile)}`);
-  });
-}
+// function createMergedPDF(pdfs, destFile) {
+//   const merge = require("easy-pdf-merge");
+//   merge(pdfs, destFile, err => {
+//     if (err) log(`Failed to create merged PDF. \n ${chalk.red(err)}`);
+//     log(`Created ${chalk.green(destFile)}`);
+//   });
+// }
 
 module.exports = {
   convert: convertMarkdownToPDF,

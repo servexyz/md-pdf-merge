@@ -14,12 +14,7 @@ test("foo", t => {
   const { convert, create } = require("../index.js");
   let destFile = path.join(output, "merged.pdf");
   let pdfs = convert(input, output);
-  create(pdfs, destFile);
-  log(`destFile: ${destFile}`);
+  // create(pdfs, destFile);
+  // log(`destFile: ${destFile}`);
   t.pass();
-  // fs.pathExists(destFile, function(err, exists) {
-  //   log(`exists: ${exists}`);
-  //   ex = exists;
-  // });
-  // t.is(ex, true);
 });
