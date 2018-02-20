@@ -2710,19 +2710,19 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-markdown-pdf@^8.1.1:
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/markdown-pdf/-/markdown-pdf-8.1.1.tgz#25c025d4f4f91869ac0f3f6fd7f7d32237669438"
+markdown-pdf@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-pdf/-/markdown-pdf-7.0.0.tgz#3c70e09a6ef3dae2c5059b3a2294bd6581d269ce"
   dependencies:
     commander "^2.2.0"
     duplexer "^0.1.1"
     extend "^3.0.0"
     highlight.js "^9.1.0"
     phantomjs-prebuilt "^2.1.3"
-    remarkable "^1.7.1"
+    remarkable "^1.6.0"
     stream-from-to "^1.4.2"
     through2 "^2.0.0"
-    tmp "0.0.33"
+    tmp "0.0.28"
 
 matcher@^1.0.0:
   version "1.1.0"
@@ -3020,7 +3020,7 @@ os-homedir@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
 
-os-tmpdir@^1.0.0, os-tmpdir@^1.0.1, os-tmpdir@~1.0.0, os-tmpdir@~1.0.2:
+os-tmpdir@^1.0.0, os-tmpdir@^1.0.1, os-tmpdir@~1.0.0, os-tmpdir@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
@@ -3441,7 +3441,7 @@ release-zalgo@^1.0.0:
   dependencies:
     es6-error "^4.0.1"
 
-remarkable@^1.7.1:
+remarkable@^1.6.0:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/remarkable/-/remarkable-1.7.1.tgz#aaca4972100b66a642a63a1021ca4bac1be3bff6"
   dependencies:
@@ -3933,11 +3933,11 @@ tmp@0.0.26:
   dependencies:
     os-tmpdir "~1.0.0"
 
-tmp@0.0.33:
-  version "0.0.33"
-  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
+tmp@0.0.28:
+  version "0.0.28"
+  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.28.tgz#172735b7f614ea7af39664fa84cf0de4e515d120"
   dependencies:
-    os-tmpdir "~1.0.2"
+    os-tmpdir "~1.0.1"
 
 to-fast-properties@^2.0.0:
   version "2.0.0"

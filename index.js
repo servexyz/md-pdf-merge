@@ -1,6 +1,6 @@
 const path = require("path");
-var markdownpdf = require("markdown-pdf");
-var fs = require("fs-extra");
+const markdownpdf = require("markdown-pdf");
+const fs = require("fs-extra");
 const chalk = require("chalk");
 const log = console.log;
 
@@ -25,36 +25,23 @@ function convertMarkdownToPDF(inputDir, outputDir) {
       log(`.md: \t`, chalk.blue(mdPath));
       log(`.pdf: \t`, chalk.green(pdfPath));
       fs.ensureFileSync(pdfPath);
-      fs
+      let writer = fs
         .createReadStream(mdPath)
         .pipe(markdownpdf())
         .pipe(fs.createWriteStream(pdfPath));
-      // markdownpdf()
-      //   .from(mdPath)
-      //   .to(pdfPath, () => {
-      //     log(`Finished creasting PDF`);
-      //   });
+
+      if (writer.bytesWritten === 0) {
+        log(`${chalk.red("0 bytes written")}`);
+      }
+
       return pdfPath;
     });
 }
 
-// function createMergedPDF(pdfs, destFile) {
-//   const merge = require("pdf-merge");
-//   log(`merge`);
-//   merge(pdfs, { output: destFile })
-//     .then(buff => {
-//       log(`buff: ${buff}`);
-//     })
-//     .catch(err => {
-//       log(`Failed to merge. \n ${chalk.red(err)}`);
-//     });
-//   log(`fin`);
-// }
 function createMergedPDF(pdfs, destFile) {
   const merge = require("easy-pdf-merge");
   merge(pdfs, destFile, err => {
     if (err) log(`Failed to create merged PDF. \n ${err}`);
-
     log(`Created ${chalk.green(destFile)}`);
   });
 }
